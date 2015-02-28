@@ -3,15 +3,14 @@
 require_once 'classes/ClassAutoLoadRegister.php';
 require_once 'functions/Functions.php';
 
-$config=new Config();
+// $config=new Config();
+// echo $config->get('hello')."<br>";
+// echo "<h1>".Config::get()."<h1>";
+// $config->setName();
+// $config->setPwd();
+// echo $config->toString();
 
-echo $config->get('hello')."<br>";
-echo "<h1>".Config::get()."<h1>";
 
-$config->setName();
-$config->setPwd();
-
-echo $config->toString();
 
 // $doc=<<<HTML
 // <br>this is a sentence from hear doc.
@@ -30,14 +29,7 @@ echo $config->toString();
 // HTML;
 // echo $doc;
 
+// login('"hello"','"1223"');
 
-$connector=new Connector();
-$ConnClient = $connector->getConnClient();
-	$sql='select * from user';
-
-	$curcor=$ConnClient->query($sql);
-	if($curcor){
-		$a_res=$curcor->fetch_assoc();
-		$json = json_encode($a_res);
-		echo "<br>one row result: " .$json;
-	}
+// register("'linjonh'","'2015jaysen'");
+selectAllFromTable('user');

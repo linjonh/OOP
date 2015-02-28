@@ -3,9 +3,10 @@
 This class is intent to connect database and get database connector using by mysqli object.
 */
 class Connector{
+	//mysqli 连接实例对象
 	private $conn;
 
-	public function getConnClient($value=''){
+	private function getConnClient($value=''){
 		$this->conn = new mysqli('localhost:3306','root','root','app');
 		if($this->conn){
 			
@@ -17,5 +18,11 @@ class Connector{
 			// echo '<br>client is not null,and connection is success!';
 			return $this->conn;			
 		}	
+	}
+
+	public function getDML()
+	{
+		$DML=new DML($this->getConnClient());
+		return $DML;
 	}
 }
