@@ -1,7 +1,6 @@
 <?php
-
 class Config{
-	public static get($path=null){
-		retun "hello world";
+	public static function get($path=null){
+		return "hello world";
 	}
 }
