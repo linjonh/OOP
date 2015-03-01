@@ -13,6 +13,17 @@ class DML{
 	}
 	
 	//add record 增
+	/**
+	$table:
+		insert a record to the table.
+	$projectionArray:
+		a record fields values mapping.
+		struct:
+			array(
+				field => value,
+				field2 => value2
+			)
+	*/
 	public function insert($table=null,$projectionArray=null){
 		if($table===null){
 			echo "table argument not set";
@@ -40,24 +51,90 @@ class DML{
 		}		
 	}	
 	//delete record 删
-	public function delete($sql=''){
-		
+	/**
+	$table: 
+		the table's record to be delete.
+	$whereClauseStr: 
+		where clause to select a record to delete.
+
+	*/
+	public function delete($table=null,$whereClauseStr=null){
+		if($table===null){
+			echo "table is not specified!";
+			return;
+		}
+		$sql='';
+		if($whereClauseStr!==null){
+			$sql="DELETE FROM {$table} WHERE {$whereClauseStr}";
+		}else{
+			//delete all data in table;
+			$sql="DELETE FROM {$table} ";
+		}
+		$affectedCount=$this->ConnClient->query($sql);
+		echo "$affectedCount affected!";
 	}	
 	//alter record 改
-	public function update($sql=''){
-		
+	/**
+	$table: 
+		the table to be update.
+	$fieldsArray: 
+		fields to set data.
+		struct: 
+		$array(
+			field  => value,
+			field2 => value2
+		) transform to	(field = value,field2 = valued2)
+	$whereClauseStr: 
+		where clause to select a record.
+	*/
+	public function update($table=null,$fieldsArray=null,$whereClauseStr=null){
+		if($table===null){
+			echo "table is not specified!";
+			return;
+		}
+		if($fieldsArray===null){
+			echo "fields Array is not specified!";
+			return;
+		}
+		$sql='';
+		$fieldsSet='';
+		foreach ($fieldsArray as $key => $value) {
+			$fieldsSet.="{$key} = {$value},";
+		}
+		$fieldsSet=substr($fieldsSet, 0,strlen($fieldsSet)-1);
+		if($whereClauseStr!==null){
+			$sql="UPDATE {$table} SET {$fieldsSet} WHERE {$whereClauseStr}";
+		}else{
+			//update all record
+			$sql="UPDATE {$table} SET {$fieldsSet}";
+		}
+		$affectedCount = $this->ConnClient->query($sql);
+		if($affectedCount){
+			echo "$affectedCount record updated!";
+		}
+		else{
+			echo "update failed!";
+		}
 	}
 	//query record 查
 	/**
-	$table: the table to be queried.
-	$projectionArray: the projections of the table to be queried.
-		structure: $projectionArray=array(one,two,three);
-	$whereClauseStr: a where clause string
-		
+	$table: 
+		the table to be queried.
+	$projectionArray: 
+		the projections of the table to be queried.
+		structure: 
+			$projectionArray=array(
+				one,
+				two,
+				three
+				);
+	$whereClauseStr: 
+		a where clause string		
 	$equlOrLike: precise query or dim query.
 		true for precise query.
 		false for dim query.
-	return: query result cursor.
+	return: 
+		query result cursor.
 	*/
 	public function select($table=null, $projectionArray=null, $whereClauseStr=null){
 		if($table===null){
@@ -92,8 +169,18 @@ class DML{
 		return $cursor;
 	}
 
-
-
+	/**
+	excute sql directly.
+	*/
+	public function query($sql='')
+	{
+		/*if(strtoupper(stristr($sql, 'SELECT',true))==='SELECT'){
+			//is select query sql
+			return $this->ConnClient->query($sql);	
+		}*/
+		return $this->ConnClient->query($sql);	
+	}
+	//close the database connection.
 	public function closeConnection()
 	{
 		if($this->ConnClient!==null){

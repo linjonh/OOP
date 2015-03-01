@@ -59,11 +59,15 @@ function register($name='',$pwd='')
 	$DML->closeConnection();
 }
 //step 3: update user info==============================
-function updateUserInfo($value='')
+function updateUserInfo($values=null,$where=null)
 {
-	# code...
+	$table='user';
+	$DML=getDML();
+	$DML->update($table,$values,$where);
+	$DML->closeConnection();
 }
 //step 4: send tapic====================================
+//insert topic to topic table.
 function sendTopic($value='')
 {
 	# code...
