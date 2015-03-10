@@ -1,6 +1,6 @@
 <?php
 
-require_once 'core/init.php';
+// require_once 'core/init.php';
 // echo Config::get();
 // echo Item::get_item();
 #
@@ -31,26 +31,9 @@ $config->setName();
 $config->setPwd();
 echo $config->toString();*/
 
-
+printLoginHtml();
 #
-/*$doc=<<<HTML
-<br>this is a sentence from hear doc.
-<!DOCTYPE html>
-<html>
-<head>
-	<title>hello</title>			
-	
-</head>
-<body>
-	here doc html
-	<div style='marigin:0 ;padding:0 10; color: red; background: blue;'>hahhahhahaahah<div>
-	
-</body>
-</html>
-HTML;
-echo $doc;*/
-#
-// login('"hello"','"1223"');
+// login('linjonh','12345');
 #
 // register("'linjonh'","'2015jaysen'");
 #

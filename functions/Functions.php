@@ -1,4 +1,5 @@
 <?php
+require_once 'samplehtml.php';
 //=======================================================
 function getDML(){
 	$connector=new Connector();
@@ -19,8 +20,8 @@ function login($name='',$pwd=''){
 
 	$DML=getDML();
 
-	$projArray=array($name,$pwd);
-	$whereClause='username LIKE "%sc%"';
+	$projArray=array("username","pwd");
+	$whereClause="username = '{$name}' and pwd= '{$pwd}'";
 	$resultCursor=$DML->select('user',$projArray,$whereClause);
 	if($resultCursor){
 		$data=$resultCursor->fetch_assoc();
@@ -97,5 +98,18 @@ function selectAllFromTable($table='')
 		while(($result=$cursor->fetch_assoc())!==null){
 			echo "<br>".json_encode($result);
 		}
+	}
+}
+
+function printLoginHtml(){
+	echo LOGIN_HTML;
+}
+
+function formLoginAction($value='')
+{
+	if (isset($_REQUEST['name']) && isset($_REQUEST['pwd'])){
+		login($_REQUEST['name'],$_REQUEST['pwd']);
+	}else{
+		echo "name or pwd not set!";
 	}
 }
