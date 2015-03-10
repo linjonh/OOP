@@ -32,6 +32,7 @@ $config->setPwd();
 echo $config->toString();*/
 
 printLoginHtml();
+// showFooter();
 #
 // login('linjonh','12345');
 #

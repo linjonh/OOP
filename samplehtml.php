@@ -33,9 +33,13 @@ const LOGIN_HTML=<<<HTML
             <input type="button" name="register" id="register" value="Register" />
         </form>
     </div>
-    <?php
-        showFooter();
-    ?>
+    <div class="footer">
+        <footer>
+            &copy; 2014-2015 powered by lin jian you.
+            <p> All right reserved.
+            <p> Email: <a id="my_email" href="mailto://jaysen.lin@foxmail.com">jaysen.lin@foxmail.com</a>
+        </footer>
+    </div>
     <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
     <script src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
      <script>
