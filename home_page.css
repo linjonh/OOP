@@ -20,14 +20,14 @@ body {
     font-size: 60px;
 }
 header {
-    padding-top: 0.8em;
-    padding-bottom: 0.8em;
     font-weight: 200;
     /*text-shadow: 0px 0px 3px rgba(255, 255, 255, 1);*/
     
     text-shadow: 0 0 10px #00FF00;
 }
 div#form {
+    /*margin: auto;*/
+    
     padding-top: 30px;
     padding-bottom: 30px;
     font-family: Roboto, helvetica, arial, sans-serif;
@@ -47,14 +47,14 @@ form {
     box-shadow: 0 0 10px #00FF00;
 }
 .footer {
-    position: relative;
-    bottom: 0;
+    bottom: 0px;
     width: 100%;
+    height: 10%;
     text-align: center;
     background-color: #1724C4;
     color: white;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding-top: 50px;
+    padding-bottom: 50px;
     text-shadow: 0px 0px 3px rgba(255, 255, 255, 1);
 }
 label {
@@ -81,6 +81,7 @@ input {
     
     color: white;
     /*text-shadow: 0px 0px 1px rgba(255, 255, 255, 1);*/
+    
     display: block;
     border: none;
     border-bottom: solid 2px #FFFFFF;
@@ -139,13 +140,53 @@ input:focus, input:active, {
 #my_email {
     color: white;
 }
-@media screen and (min-width: 700px) {
+@media screen and (max-width: 540px) {
+    /*width<=540px*/
+    
+    form {
+        width: 50%;
+    }
+    #form {
+        margin-bottom: 15%;
+    }
+    .footer {
+        position: relative;
+    }
+    header {
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+    }
+}
+@media screen and (min-width: 540px) {
+    /*width>=540px */
+    
     form {
         width: 300px;
     }
+    .footer {
+        position: absolute;
+    }
+    header {
+        padding-top: 0.8em;
+        padding-bottom: 0.8em;
+    }
 }
-@media screen and (max-width: 700px) {
-    form {
-        width: 50%;
+
+@media screen and (max-height: 600px) {
+    /*height<=600px*/
+    header {
+        padding-top: 0.2em;
+        padding-bottom: 0.2em;
+    }
+    .footer {
+        padding-top: 20px;
+        padding-bottom: 50px;
+    }
+}
+
+@media screen and (min-height: 1200px){
+    /*height>=1200px*/
+    #form{
+        margin-top: 300px;
     }
 }

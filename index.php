@@ -1,6 +1,6 @@
 <?php
 
-// require_once 'core/init.php';
+require_once 'core/init.php';
 // echo Config::get();
 // echo Item::get_item();
 #
@@ -21,8 +21,7 @@ echo "get_defined_constants(true)<br>";
 print_r(get_defined_constants(true));*/
 
 #
-require_once 'classes/ClassAutoLoadRegister.php';
-require_once 'functions/Functions.php';
+
 #
 /*$config=new Config();
 echo $config->get('hello')."<br>";
@@ -32,6 +31,8 @@ $config->setPwd();
 echo $config->toString();*/
 
 printLoginHtml();
+
+
 // showFooter();
 #
 // login('linjonh','12345');

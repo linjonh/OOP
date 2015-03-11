@@ -11,6 +11,7 @@ function getDML(){
 function login($name='',$pwd=''){
 	if(strlen($name)===0){
 		echo "user name not set!";
+		header('Location:samplehtml.php');
 		return;
 	}
 	if(strlen($pwd)===0){
@@ -26,9 +27,11 @@ function login($name='',$pwd=''){
 	if($resultCursor){
 		$data=$resultCursor->fetch_assoc();
 		if($data){
+			header('Location:samplehtml.php');
 			echo "<br>".json_encode($data);
 			echo "<br>login success!";
 		}else{
+			header('Location:samplehtml.php');
 			echo "<br>login failed!";
 		}
 		
@@ -41,8 +44,12 @@ function login($name='',$pwd=''){
 
 
 //step 2: register======================================
-function register($name='',$pwd='')
+function register($name=null,$pwd=null)
 {
+	if(!isset($name) || !isset($pwd)){
+		echo "name or password not set!";
+		return;
+	}
 	if(strpos($name,'@')===false){
 		//not email account.
 		echo "not email account.";
@@ -104,13 +111,17 @@ function selectAllFromTable($table='')
 function printLoginHtml(){
 	echo LOGIN_HTML;
 }
+function printRegisterHtml(){
+	echo REGISTER_HTML;
+}
 
 function formLoginAction($value='')
 {
 	if (isset($_REQUEST['name']) && isset($_REQUEST['pwd'])){
 		login($_REQUEST['name'],$_REQUEST['pwd']);
 	}else{
-		echo "name or pwd not set!";
+		header('Location:samplehtml.php');
+		// echo "name or pwd not set!";
 	}
 }
 
