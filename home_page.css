@@ -140,6 +140,10 @@ input:focus, input:active, {
 #my_email {
     color: white;
 }
+form a#register_link{
+    color: white;
+}
+
 @media screen and (max-width: 540px) {
     /*width<=540px*/
     
@@ -157,6 +161,11 @@ input:focus, input:active, {
         padding-bottom: 0.2em;
     }
 }
+/*@media screen and (max-width: 480px) {
+    .footer {
+        position: absolute;
+    }
+}*/
 @media screen and (min-width: 540px) {
     /*width>=540px */
     
@@ -164,7 +173,7 @@ input:focus, input:active, {
         width: 300px;
     }
     .footer {
-        position: absolute;
+        position: relative;
     }
     header {
         padding-top: 0.8em;
@@ -172,7 +181,7 @@ input:focus, input:active, {
     }
 }
 
-@media screen and (max-height: 600px) {
+@media screen and (max-height: 604px) {
     /*height<=600px*/
     header {
         padding-top: 0.2em;
@@ -184,9 +193,17 @@ input:focus, input:active, {
     }
 }
 
+@media screen and (min-height: 800px){
+    /*height>=800px*/
+    .footer{
+        position: absolute;
+    }
+}
+
 @media screen and (min-height: 1200px){
     /*height>=1200px*/
     #form{
         margin-top: 300px;
     }
 }
+
