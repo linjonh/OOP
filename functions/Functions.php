@@ -1,5 +1,5 @@
 <?php
-require_once 'samplehtml.php';
+require_once '../samplehtml.php';
 //=======================================================
 function getDML(){
 	$connector=new Connector();
@@ -54,10 +54,10 @@ function register($name=null,$pwd=null)
 	}
 	if(strpos($name,'@')===false){
 		//not email account.
-		echo "not email account.";
+// 		echo "not email account.";
 	}else{
 		//is email account.
-		echo "is email account.";
+// 		echo "is email account.";
 	}
 
 	$DML=getDML();

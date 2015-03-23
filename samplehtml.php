@@ -74,7 +74,7 @@ const REGISTER_HTML=<<<HTML
         </header>
     </div>
     <div id="form">
-        <form action="loginVarify.php" method="post">
+        <form action="" method="post">
             <!-- <label for="name">name:</label> -->
             <!-- <br> -->
             <input type="text" id="name" name="name" placeholder="Name" autocomplete="off" autofocus="autofocus"/>

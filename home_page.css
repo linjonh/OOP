@@ -144,8 +144,8 @@ form a#register_link{
     color: white;
 }
 
-@media screen and (max-width: 540px) {
-    /*width<=540px*/
+@media screen and (max-width: 572px) {
+    /*width<=572px*/
     
     form {
         width: 50%;
@@ -166,8 +166,8 @@ form a#register_link{
         position: absolute;
     }
 }*/
-@media screen and (min-width: 540px) {
-    /*width>=540px */
+@media screen and (min-width: 572px) {
+    /*width>=572px */
     
     form {
         width: 300px;
@@ -193,8 +193,8 @@ form a#register_link{
     }
 }
 
-@media screen and (min-height: 800px){
-    /*height>=800px*/
+@media screen and (min-height: 700px){
+    /*height>=700px*/
     .footer{
         position: absolute;
     }

@@ -4,7 +4,7 @@
   "description": "login and registration",
   "main": "index.php",
   "scripts": {
-    "test": "grunt watch"
+    "test": "grunt serve"
   },
   "repository": {
     "type": "git",
