@@ -10,12 +10,13 @@ function getDML(){
 //step one: login========================================
 function login($name='',$pwd=''){
 	if(strlen($name)===0){
-		echo "user name not set!";
-		header('Location:samplehtml.php');
+		header('Location:index.php');
+		echo "<script>alert('user name not set!')</script>";
 		return;
 	}
 	if(strlen($pwd)===0){
-		echo "password not set!";
+		echo "<script>alert('password not set!')</script>";
+// 		header('Location:index.php');
 		return;
 	}
 
@@ -27,16 +28,17 @@ function login($name='',$pwd=''){
 	if($resultCursor){
 		$data=$resultCursor->fetch_assoc();
 		if($data){
-			header('Location:samplehtml.php');
+// 			header('Location:index.php');
 			echo "<br>".json_encode($data);
-			echo "<br>login success!";
+			echo "<script>alert('login success!')</script>!";
 		}else{
-			header('Location:samplehtml.php');
-			echo "<br>login failed!";
+// 			header('Location:index.php');
+			echo "<script>alert('login failed!')</script>";
 		}
 		
 	}else{
-		echo "<br>login failed! check up the SQL sentence!";
+		header('Location:index.php');
+		echo "<script>alert('login failed! check up the SQL sentence!')</script>";
 	}
 	$DML->closeConnection();
 }
@@ -120,8 +122,8 @@ function formLoginAction($value='')
 	if (isset($_REQUEST['name']) && isset($_REQUEST['pwd'])){
 		login($_REQUEST['name'],$_REQUEST['pwd']);
 	}else{
-		header('Location:samplehtml.php');
-		// echo "name or pwd not set!";
+// 		header('Location:index.php');
+		echo "<script>alert('name or pwd not set!')</script>";
 	}
 }
 

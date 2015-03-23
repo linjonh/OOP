@@ -49,6 +49,7 @@ const LOGIN_HTML=<<<HTML
          location.href='register.php';
         });
     </script>
+	<script src="form-validate.js"></script>
 </body>
 
 </html>

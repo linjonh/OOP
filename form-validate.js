@@ -75,3 +75,17 @@
          return;
      }
  });
+ 
+
+ $('#login').click(function() {
+	var name_val = $('#name').val();
+	var pwd_val = $('#pwd').val();
+	if (name_val.trim() === '') {
+		alert('please input user name');
+		return;
+	}
+	if (pwd_val.trim() === '') {
+		alert('please input user password');
+		return;
+	}
+});
