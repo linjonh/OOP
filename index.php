@@ -1,6 +1,14 @@
 <?php
 
 require_once 'core/init.php';
+require_once 'samplehtml.php';
+
+function printLoginHtml(){
+	echo LOGIN_HTML;
+}
+function printRegisterHtml(){
+	echo REGISTER_HTML;
+}
 // echo Config::get();
 // echo Item::get_item();
 #

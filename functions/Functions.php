@@ -1,5 +1,5 @@
 <?php
-require_once '../samplehtml.php';
+
 //=======================================================
 function getDML(){
 	$connector=new Connector();
@@ -110,12 +110,7 @@ function selectAllFromTable($table='')
 	}
 }
 
-function printLoginHtml(){
-	echo LOGIN_HTML;
-}
-function printRegisterHtml(){
-	echo REGISTER_HTML;
-}
+
 
 function formLoginAction($value='')
 {

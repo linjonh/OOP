@@ -39,6 +39,9 @@ CREATE TABLE IF NOT EXISTS `user` (
   `history_avatar` text,
   `signature` text,
   `age` integer NOT NULL DEFAULT 0,
+  ,`email` text
+  ,`mobile` text
+  ,`home_page` text
   UNIQUE KEY `name_uq` (`username`)
 ) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
 
