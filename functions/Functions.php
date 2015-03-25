@@ -64,8 +64,8 @@ function register($name=null,$pwd=null)
 
 	$DML=getDML();
 	$projArray=array(
-		'username'=>$name,
-		'pwd'=>$pwd
+		'username'=>"'".$name."'",
+		'pwd'=>"'".$pwd."'"
 		);
 	$DML->insert('user',$projArray);
 	$DML->closeConnection();

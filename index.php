@@ -38,15 +38,15 @@ $config->setName();
 $config->setPwd();
 echo $config->toString();*/
 
-// printLoginHtml();
+printLoginHtml();
 
 
 // showFooter();
 #
 // login('linjonh','2015jaysen');
-login('lin','12234');
+// login('lin','12234');
 #
-// register("'linjonh'","'2015jaysen'");
+// register("'hello'","'2015'");
 #
 // selectAllFromTable('user');
 #

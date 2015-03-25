@@ -42,11 +42,11 @@ class DML {
 		$projections = substr ( $projections, 0, strlen ( $projections ) - 1 );
 		$datas = substr ( $datas, 0, strlen ( $datas ) - 1 );
 		$sql = "INSERT INTO {$table} ( {$projections} ) VALUES ( {$datas} )";
-		// echo "$sql";
+		echo "$sql";
 		$rowEffect = $this->ConnClient->query ( $sql );
 		// $resultJson="";
 		if ($rowEffect) {
-			$resultJson = '{"result":{$rowEffect},"description":"success"}';
+			$resultJson = '{"result":"'.$rowEffect.'",description":"success"}';
 		} else {
 			$resultJson = '{"result":0,"description":"failed"}';
 		}
@@ -153,7 +153,7 @@ class DML {
 		}
 		
 		// args 3: whereClauseStr
-		$sql = '';
+		// $sql = '';
 		if ($whereClauseStr) {
 			$sql = "SELECT {$projections} FROM {$table} WHERE {$whereClauseStr}";
 		} else {
