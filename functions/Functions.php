@@ -19,26 +19,28 @@ function login($name='',$pwd=''){
 // 		header('Location:index.php');
 		return;
 	}
-
+	
 	$DML=getDML();
 
 	$projArray=array("username","pwd");
 	$whereClause="username = '{$name}' and pwd= '{$pwd}'";
+
 	$resultCursor=$DML->select('user',$projArray,$whereClause);
 	if($resultCursor){
 		$data=$resultCursor->fetch_assoc();
 		if($data){
 // 			header('Location:index.php');
 			echo "<br>".json_encode($data);
-			echo "<script>alert('login success!')</script>!";
+			echo "<br>login success!";
 		}else{
 // 			header('Location:index.php');
-			echo "<script>alert('login failed!')</script>";
+			echo "login failed!";
+			echo "<br>name:".$name."pwd".$pwd;
 		}
 		
 	}else{
 		header('Location:index.php');
-		echo "<script>alert('login failed! check up the SQL sentence!')</script>";
+		echo "login failed! check up the SQL sentence!";
 	}
 	$DML->closeConnection();
 }
