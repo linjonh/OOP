@@ -29,12 +29,12 @@ SET time_zone = "+00:00";
 
 DROP TABLE IF EXISTS `user`;
 CREATE TABLE IF NOT EXISTS `user` (
-  `_id` int(11) primary key NOT NULL,
+  `_id` int(11) primary key NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL,
   `pwd` varchar(255) NOT NULL,
   `sex` enum('0','1','2') DEFAULT '2',
   `birth` date DEFAULT NULL,
-  `createtime` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `createtime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `avatar` text,
   `history_avatar` text,
   `signature` text,
@@ -43,7 +43,7 @@ CREATE TABLE IF NOT EXISTS `user` (
   `mobile` text,
   `home_page` text,
   UNIQUE KEY `name_uq` (`username`)
-) ENGINE=InnoDB AUTO_INCREMENT=1000 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 --
 -- 转存表中的数据 `user`
@@ -76,7 +76,7 @@ INSERT INTO `user` (`username`, `pwd`, `sex`, `birth`, `createtime`) VALUES
 --
 -- AUTO_INCREMENT for table `user`
 --
---ALTER TABLE `user` MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1011;
+ALTER TABLE `user` MODIFY `_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1011;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

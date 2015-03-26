@@ -42,13 +42,13 @@ class DML {
 		$projections = substr ( $projections, 0, strlen ( $projections ) - 1 );
 		$datas = substr ( $datas, 0, strlen ( $datas ) - 1 );
 		$sql = "INSERT INTO {$table} ( {$projections} ) VALUES ( {$datas} )";
-		echo "$sql";
+		//echo "$sql";
 		$rowEffect = $this->ConnClient->query ( $sql );
 		// $resultJson="";
 		if ($rowEffect) {
-			$resultJson = '{"result":"'.$rowEffect.'",description":"success"}';
+			$resultJson = '{"result":"'.$rowEffect.'row effect",description":"insert success"}';
 		} else {
-			$resultJson = '{"result":0,"description":"failed"}';
+			$resultJson = '{"result":0,"description":"insert failed","error":.'$this->ConnClient->error.'}';
 		}
 		exit ( $resultJson );
 	}
